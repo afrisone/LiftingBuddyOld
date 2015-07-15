@@ -11,9 +11,7 @@ public class Calculator {
         return gender;
     }
 
-    private int getAge(){
-        return 1;
-    }
+    
 
     private double getHeight() {
         Boolean metric = true;
