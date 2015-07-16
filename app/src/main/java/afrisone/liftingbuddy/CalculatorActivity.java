@@ -56,9 +56,4 @@ public class CalculatorActivity extends ActionBarActivity {
         }
     }
 
-    //Method which allows other classes to get the gender
-    public String getGender() {
-        isFemale();
-        return gender;
-    }
 }
