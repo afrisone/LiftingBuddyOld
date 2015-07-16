@@ -4,11 +4,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 
 public class CalculatorActivity extends ActionBarActivity {
@@ -17,10 +21,11 @@ public class CalculatorActivity extends ActionBarActivity {
     private double height; //cm
     private double age;
     private double weight; //kg
-    private double activityLevel; //1.2 sedentary, 1.375 lightly, 1.55 morderately, 1.725 very
+    private double activityLevel; //1.2 sedentary, 1.375 lightly, 1.55 moderately, 1.725 very
     private double REE;
     private double TDEE;
 
+    Button calculatorSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,19 @@ public class CalculatorActivity extends ActionBarActivity {
         String [] activityLevels = new String[]{"Sedentary", "Light activity", "Moderate activity", "Very active"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, activityLevels);
         activityLevel.setAdapter(spinnerAdapter);
+
+        calculatorSubmit = (Button)findViewById(R.id.button_calculate);
+        calculatorSubmit.setOnClickListener(submitResults);
     }
+
+    View.OnClickListener submitResults = new View.OnClickListener(){
+        public void onClick(View v){
+            calculateTDEE();
+            setContentView(R.layout.calculator_after_submit);
+            TextView showTDEE = (TextView)findViewById(R.id.show_TDEE);
+            showTDEE.setText(String.valueOf(new DecimalFormat("#.##").format(TDEE)));
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -126,13 +143,13 @@ public class CalculatorActivity extends ActionBarActivity {
             case "Sedentary":
                 activityLevel = 1.2;
                 break;
-            case "Light Activity":
+            case "Light activity":
                 activityLevel = 1.375;
                 break;
-            case "Moderate Activity":
+            case "Moderate activity":
                 activityLevel = 1.55;
                 break;
-            case "Very Active":
+            case "Very active":
                 activityLevel = 1.725;
                 break;
         }
