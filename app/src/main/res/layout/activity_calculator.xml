@@ -9,18 +9,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <TextView
             android:layout_width="90dp"
             android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Gender"
+            android:text="@string/gender"
             android:id="@+id/textView"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/measurement_units"
+            android:id="@+id/textView6"
             android:layout_row="0"
             android:layout_column="0"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="166dp"
+            android:layout_width="197dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_row="0"
@@ -30,41 +42,62 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:id="@+id/genderMale"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:checked="false"
-                android:textSize="18dp" />
+                android:text="@string/imperial"
+                android:id="@+id/imperial_units"
+                android:checked="true"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                android:id="@+id/genderFemale"
-                android:layout_row="0"
-                android:layout_column="2"
+                android:text="@string/metric"
+                android:id="@+id/metric_units"
                 android:checked="false"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
+            </RadioGroup>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnSpan="2">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:id="@+id/genderMale"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:id="@+id/genderFemale"
+                android:checked="false"
+                android:textSize="18sp" />
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Height (ft, in)"
+            android:text="@string/height_imperial"
             android:id="@+id/textView3"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_column="0"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:layout_width="72dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_row="1"
+            android:id="@+id/height_in_feet"
+            android:layout_row="2"
             android:layout_column="1" />
 
         <EditText
@@ -72,63 +105,63 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText3"
-            android:layout_row="1"
+            android:id="@+id/height_in_inches"
+            android:layout_row="2"
             android:layout_column="2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Age (years)"
+            android:text="@string/age"
             android:id="@+id/textView2"
-            android:layout_row="2"
+            android:layout_row="3"
             android:layout_column="0"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:layout_width="72dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText"
-            android:layout_row="2"
+            android:id="@+id/age_in_years"
+            android:layout_row="3"
             android:layout_column="1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Weight (lbs)"
+            android:text="@string/weight_imperial"
             android:id="@+id/textView4"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:textSize="18dp" />
-
-        <EditText
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText4"
-            android:layout_row="3"
-            android:layout_column="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Activity Level"
-            android:id="@+id/textView5"
             android:layout_row="4"
             android:layout_column="0"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/weight_in_pounds"
+            android:layout_row="4"
+            android:layout_column="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/activity_level"
+            android:id="@+id/textView5"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:textSize="18sp" />
 
         <Spinner
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:id="@+id/activity_level"
-            android:layout_row="4"
+            android:layout_row="5"
             android:layout_column="1"
             android:spinnerMode="dropdown"
             android:layout_columnSpan="2" />
@@ -136,9 +169,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculate"
+            android:text="@string/calculate"
             android:id="@+id/button"
-            android:layout_row="5"
+            android:layout_row="6"
             android:layout_column="2" />
 
     </GridLayout>

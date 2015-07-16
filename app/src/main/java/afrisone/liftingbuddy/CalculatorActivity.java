@@ -5,12 +5,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class CalculatorActivity extends ActionBarActivity {
     private String gender;
+    private String units;
+    private double height; //cm
+    private double age;
+    private double weight; //kg
+    private double activityLevel; //1.2 sedentary, 1.375 lightly, 1.55 morderately, 1.725 very
+    private double REE;
+    private double TDEE;
 
 
     @Override
@@ -46,8 +55,19 @@ public class CalculatorActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Method which determines if the female box is checked. If not, the gender will be "Male"
-    private void isFemale(){
+    //Method to determine if metric is selected. Imperial units by default
+    private void getUnits(){
+        //TODO: if metric, change height and weight units to cm and kg
+        if(((RadioButton)findViewById(R.id.metric_units)).isChecked()){
+            units = "Metric";
+        }
+        else{
+            units = "Imperial";
+        }
+    }
+
+    //Method to set the member variable gender based on user input
+    private void getGender(){
         if( ((RadioButton)findViewById(R.id.genderFemale)).isChecked()){
             gender = "Female";
         }
@@ -56,4 +76,95 @@ public class CalculatorActivity extends ActionBarActivity {
         }
     }
 
+    //Method to get the user input for the height
+    private void getHeight(){
+        EditText mEdit;
+        if(units.equals("Imperial")) {
+            double feet;
+            mEdit = (EditText) findViewById(R.id.height_in_feet);
+            feet = Double.parseDouble(mEdit.getText().toString());
+
+            double inches;
+            mEdit = (EditText) findViewById(R.id.height_in_inches);
+            inches = Double.parseDouble(mEdit.getText().toString());
+
+            inches += (feet * 12);
+
+            height = inches * 2.54;
+        }
+        else{
+            //TODO add height_in_cm to layout and add metric capabilities
+        }
+    }
+
+    //Method to get user input for age
+    private void getAge(){
+        EditText mEdit;
+        mEdit = (EditText) findViewById(R.id.age_in_years);
+        age = Double.parseDouble(mEdit.getText().toString());
+    }
+
+    //Method to get user input for weight
+    private void getWeight(){
+        EditText mEdit;
+        if(units.equals("Imperial")) {
+            mEdit = (EditText) findViewById(R.id.weight_in_pounds);
+            double pounds = Double.parseDouble(mEdit.getText().toString());
+            weight = pounds * 0.453592;
+        }
+        else{
+            //TODO add height_in_cm to layout and add metric capabilities
+        }
+    }
+
+    //Method to get user input for the activity level
+    private void getActivityLevel(){
+        Spinner activity = (Spinner)findViewById(R.id.activity_level);
+        String levelToString = activity.getSelectedItem().toString();
+
+        switch(levelToString){
+            case "Sedentary":
+                activityLevel = 1.2;
+                break;
+            case "Light Activity":
+                activityLevel = 1.375;
+                break;
+            case "Moderate Activity":
+                activityLevel = 1.55;
+                break;
+            case "Very Active":
+                activityLevel = 1.725;
+                break;
+        }
+    }
+
+    //Method to call all of the getter methods
+    private void setValues(){
+        getUnits();
+        getGender();
+        getHeight();
+        getAge();
+        getWeight();
+        getActivityLevel();
+    }
+
+    //Method to calculate the Resting Energy Expenditure
+    private void calculateREE(){
+        setValues();
+
+        if (gender.equals("Female")){
+            REE = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        }
+        else{
+            REE = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        }
+    }
+
+    //Method to calculate Total Daily Energy Expenditure (Calories to maintain weight)
+    private void calculateTDEE(){
+        calculateREE();
+
+        TDEE = REE * activityLevel;
+        System.out.println(TDEE);
+    }
 }
