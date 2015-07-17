@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/male"
                 android:id="@+id/genderMale"
-                android:checked="false"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton

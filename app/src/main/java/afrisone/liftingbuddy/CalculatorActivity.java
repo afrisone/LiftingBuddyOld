@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
 
 
@@ -24,29 +23,54 @@ public class CalculatorActivity extends ActionBarActivity {
     private double activityLevel; //1.2 sedentary, 1.375 lightly, 1.55 moderately, 1.725 very
     private double REE;
     private double TDEE;
-
+    private double caloriesPerDay;
     Button calculatorSubmit;
+    Button  caloriesSubmitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
+        //Spinner to set the activity level by the user
         Spinner activityLevel = (Spinner)findViewById(R.id.activity_level);
         String [] activityLevels = new String[]{"Sedentary", "Light activity", "Moderate activity", "Very active"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, activityLevels);
         activityLevel.setAdapter(spinnerAdapter);
 
+        //Submit button after user enters age, height, weight, gender, and activity level
         calculatorSubmit = (Button)findViewById(R.id.button_calculate);
         calculatorSubmit.setOnClickListener(submitResults);
     }
 
+    //Listener
     View.OnClickListener submitResults = new View.OnClickListener(){
         public void onClick(View v){
             calculateTDEE();
             setContentView(R.layout.calculator_after_submit);
-            TextView showTDEE = (TextView)findViewById(R.id.show_TDEE);
-            showTDEE.setText(String.valueOf(new DecimalFormat("#.##").format(TDEE)));
+
+            caloriesSubmitButton = (Button)findViewById(R.id.submit_goals);
+            caloriesSubmitButton.setOnClickListener(submitGoals);
+        }
+    };
+
+    //Listener
+    View.OnClickListener submitGoals = new View.OnClickListener(){
+        public void onClick(View v){
+            //Determine user goals to output corrent calories
+           if(((RadioButton)findViewById(R.id.lose_weight)).isChecked()){
+                caloriesPerDay = TDEE * 0.8; //Cut 20%
+            }
+            else if(((RadioButton)findViewById(R.id.gain_weight)).isChecked()){
+                caloriesPerDay = TDEE * 1.1; //Add 10%
+            }
+            else{
+                caloriesPerDay = TDEE; //Same as TDEE
+            }
+
+            //Output calories
+            TextView showCalories = (TextView)findViewById(R.id.display_calories);
+            showCalories.setText(String.valueOf(new DecimalFormat("#").format(caloriesPerDay)));
         }
     };
 

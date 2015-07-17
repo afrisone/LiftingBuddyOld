@@ -6,24 +6,83 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:id="@+id/results_setup">
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="TDEE"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/goal"
             android:id="@+id/textView7"
             android:layout_row="0"
             android:layout_column="0"
-            android:textSize="18sp" />
+            android:layout_columnSpan="3" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="3">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lose Weight"
+                android:id="@+id/lose_weight" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maintain Weight"
+                android:id="@+id/maintain_weight" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gain Weight"
+                android:id="@+id/gain_weight" />
+        </RadioGroup>
+
+        <Button
+            android:layout_width="109dp"
+            android:layout_height="59dp"
+            android:text="Submit"
+            android:id="@+id/submit_goals"
+            android:layout_row="2"
+            android:layout_column="2" />
+
+
+
+
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your Calories are..."
+            android:id="@+id/textView8"
+            android:layout_row="3"
+            android:layout_column="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/show_TDEE"
-            android:layout_row="0"
-            android:layout_column="1" />
+            android:id="@+id/display_calories"
+            android:layout_row="4"
+            android:layout_column="2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/button2"
+            android:layout_row="5"
+            android:layout_column="2" />
+
+
     </GridLayout>
 </LinearLayout>

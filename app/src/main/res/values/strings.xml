@@ -15,4 +15,5 @@
     <string name="female">Female</string>
     <string name="imperial">Imperial</string>
     <string name="metric">Metric</string>
+    <string name="goal">I am trying to...</string>
 </resources>
