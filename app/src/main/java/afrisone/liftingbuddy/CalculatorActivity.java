@@ -7,8 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import java.text.DecimalFormat;
@@ -33,11 +35,12 @@ public class CalculatorActivity extends ActionBarActivity {
         setContentView(R.layout.activity_calculator);
 
         populateActivitySpinner();
+        setUnitsUp();
 
         //Submit button after user enters age, height, weight, gender, and activity level
         Button calculatorSubmit = (Button) findViewById(R.id.button_calculate);
-        calculatorSubmit.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+        calculatorSubmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
                 calculateTDEE();
             }
         });
@@ -73,6 +76,30 @@ public class CalculatorActivity extends ActionBarActivity {
         } else {
             units = "Imperial";
         }
+    }
+
+    //Change the weight and height from imperial to metric units using the radio buttons
+    private void setUnitsUp(){
+        RadioGroup unitChange = (RadioGroup) findViewById(R.id.unit_radio_group);
+        unitChange.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                TextView height = (TextView) findViewById(R.id.height);
+                TextView weight = (TextView) findViewById(R.id.weight);
+                EditText hideInchesField = (EditText) findViewById(R.id.height_in_inches);
+
+                if(checkedId == R.id.metric_units){
+                    hideInchesField.setVisibility(View.GONE);
+                    height.setText("Height (cm)");
+                    weight.setText("Weight (kg)");
+                }
+                else{
+                    hideInchesField.setVisibility(View.VISIBLE);
+                    height.setText("Height (ft/in)");
+                    weight.setText("Weight (lbs)");
+                }
+            }
+        });
     }
 
     //Method to set the member variable gender based on user input
