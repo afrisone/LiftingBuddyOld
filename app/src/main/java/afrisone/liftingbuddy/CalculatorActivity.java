@@ -114,10 +114,9 @@ public class CalculatorActivity extends ActionBarActivity {
     //Method to get the user input for the height
     private void getHeight() {
         EditText mEdit;
+        mEdit = (EditText) findViewById(R.id.height_input);
         if (units.equals("Imperial")) {
-            double feet;
-            mEdit = (EditText) findViewById(R.id.height_in_feet);
-            feet = Double.parseDouble(mEdit.getText().toString());
+            double feet = Double.parseDouble(mEdit.getText().toString());
 
             double inches;
             mEdit = (EditText) findViewById(R.id.height_in_inches);
@@ -127,7 +126,8 @@ public class CalculatorActivity extends ActionBarActivity {
             height = inches * INCHES_TO_CM_CONVERSION;
         }
         else {
-            //TODO add height_in_cm to layout and add metric capabilities
+            double centimeters = Double.parseDouble(mEdit.getText().toString());
+            height = centimeters;
         }
     }
 
@@ -141,12 +141,13 @@ public class CalculatorActivity extends ActionBarActivity {
     //Method to get user input for weight
     private void getWeight() {
         EditText mEdit;
+        mEdit = (EditText) findViewById(R.id.weight_input);
         if (units.equals("Imperial")) {
-            mEdit = (EditText) findViewById(R.id.weight_in_pounds);
             double pounds = Double.parseDouble(mEdit.getText().toString());
             weight = pounds * POUNDS_TO_KG_CONVERSION;
         } else {
-            //TODO add height_in_cm to layout and add metric capabilities
+            double kilograms = Double.parseDouble(mEdit.getText().toString());
+            weight = kilograms;
         }
     }
 
