@@ -24,8 +24,6 @@ public class CalculatorActivity extends ActionBarActivity {
     private double REE;
     private double TDEE;
     private double caloriesPerDay;
-    Button calculatorSubmit;
-    Button  caloriesSubmitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +37,25 @@ public class CalculatorActivity extends ActionBarActivity {
         activityLevel.setAdapter(spinnerAdapter);
 
         //Submit button after user enters age, height, weight, gender, and activity level
-        calculatorSubmit = (Button)findViewById(R.id.button_calculate);
+        Button calculatorSubmit = (Button)findViewById(R.id.button_calculate);
         calculatorSubmit.setOnClickListener(submitResults);
     }
 
-    //Listener
+    //Listener to change the view from activity_calculator ot calculator_after_submit
     View.OnClickListener submitResults = new View.OnClickListener(){
         public void onClick(View v){
             calculateTDEE();
             setContentView(R.layout.calculator_after_submit);
 
-            caloriesSubmitButton = (Button)findViewById(R.id.submit_goals);
+            //Buttons on the calculator_after_submit view
+            Button caloriesSubmitButton = (Button)findViewById(R.id.submit_goals);
             caloriesSubmitButton.setOnClickListener(submitGoals);
+            Button goToMacrosButton = (Button)findViewById(R.id.go_to_macros);
+            goToMacrosButton.setOnClickListener(goToMacros);
         }
     };
 
-    //Listener
+    //Listener to display calories after the user submits his/her goals on the calculator_after_submit view
     View.OnClickListener submitGoals = new View.OnClickListener(){
         public void onClick(View v){
             //Determine user goals to output corrent calories
@@ -71,6 +72,23 @@ public class CalculatorActivity extends ActionBarActivity {
             //Output calories
             TextView showCalories = (TextView)findViewById(R.id.display_calories);
             showCalories.setText(String.valueOf(new DecimalFormat("#").format(caloriesPerDay)));
+        }
+    };
+
+    //Listener to change the view from calculator_after_submit to macro_customization
+    View.OnClickListener goToMacros = new View.OnClickListener(){
+        public void onClick(View v){
+            setContentView(R.layout.macro_customization);
+
+            Button submitMacroButton = (Button)findViewById(R.id.submit_macros);
+            submitMacroButton.setOnClickListener(finalResults);
+        }
+    };
+
+    //Listener to change the view from macro_customization to
+    View.OnClickListener finalResults = new View.OnClickListener(){
+        public void onClick(View v){
+            setContentView(R.layout.final_results_from_calculator);
         }
     };
 
@@ -204,8 +222,6 @@ public class CalculatorActivity extends ActionBarActivity {
     //Method to calculate Total Daily Energy Expenditure (Calories to maintain weight)
     private void calculateTDEE(){
         calculateREE();
-
         TDEE = REE * activityLevel;
-        System.out.println(TDEE);
     }
 }
