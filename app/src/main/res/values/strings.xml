@@ -14,4 +14,7 @@
     <string name="imperial">Imperial</string>
     <string name="metric">Metric</string>
     <string name="goal">I am trying to...</string>
+    <string name="title_activity_set_goals">SetGoalsActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

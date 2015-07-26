@@ -7,14 +7,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import java.text.DecimalFormat;
 
+//TODO: Add error handling for all user input fields to add a default value.
 
 public class CalculatorActivity extends ActionBarActivity {
     private String gender;
@@ -25,7 +24,6 @@ public class CalculatorActivity extends ActionBarActivity {
     private double activityLevel;
     private double REE;
     private double TDEE;
-    private double caloriesPerDay;
     public static final double POUNDS_TO_KG_CONVERSION = 0.453592;
     public static final double INCHES_TO_CM_CONVERSION = 2.54;
 
@@ -60,7 +58,6 @@ public class CalculatorActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
     //Change the weight and height from imperial to metric units using the radio buttons
     private void setUnitsUp(){
@@ -177,8 +174,7 @@ public class CalculatorActivity extends ActionBarActivity {
             height = inches * INCHES_TO_CM_CONVERSION;
         }
         else {
-            double centimeters = Double.parseDouble(mEdit.getText().toString());
-            height = centimeters;
+            height = Double.parseDouble(mEdit.getText().toString());
         }
     }
 
@@ -190,8 +186,8 @@ public class CalculatorActivity extends ActionBarActivity {
             double pounds = Double.parseDouble(mEdit.getText().toString());
             weight = pounds * POUNDS_TO_KG_CONVERSION;
         } else {
-            double kilograms = Double.parseDouble(mEdit.getText().toString());
-            weight = kilograms;
+            weight = Double.parseDouble(mEdit.getText().toString());
+
         }
     }
     //Method to get user input for age
@@ -221,6 +217,8 @@ public class CalculatorActivity extends ActionBarActivity {
                 break;
         }
     }
+
+
 }
 
 
