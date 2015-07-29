@@ -217,8 +217,4 @@ public class CalculatorActivity extends ActionBarActivity {
                 break;
         }
     }
-
-
 }
-
-
