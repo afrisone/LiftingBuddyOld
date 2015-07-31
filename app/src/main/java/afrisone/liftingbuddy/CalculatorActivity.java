@@ -25,9 +25,10 @@ public class CalculatorActivity extends ActionBarActivity {
     private double weight; //kg
     private double activityLevel;
     private double REE;
-    public double TDEE;
-    public static final double POUNDS_TO_KG_CONVERSION = 0.453592;
-    public static final double INCHES_TO_CM_CONVERSION = 2.54;
+    private double TDEE;
+    private static final double POUNDS_TO_KG_CONVERSION = 0.453592;
+    private static final double INCHES_TO_CM_CONVERSION = 2.54;
+    private static final int FEET_TO_INCHES_CONVERSION = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +176,7 @@ public class CalculatorActivity extends ActionBarActivity {
             mEdit = (EditText) findViewById(R.id.height_in_inches);
             inches = Double.parseDouble(mEdit.getText().toString());
 
-            inches += (feet * 12);
+            inches += (feet * FEET_TO_INCHES_CONVERSION);
             height = inches * INCHES_TO_CM_CONVERSION;
         }
         else {

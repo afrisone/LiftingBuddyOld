@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 
 public class SetGoalsActivity extends ActionBarActivity {
-    double calorieChangeFactor;
-    int totalDailyCalories;
-    double TDEE;
+    private double calorieChangeFactor;
+    private int totalDailyCalories;
+    private double TDEE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
