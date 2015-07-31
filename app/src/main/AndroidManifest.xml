@@ -20,6 +20,10 @@
             android:name=".SetGoalsActivity"
             android:label="@string/title_activity_set_goals" >
         </activity>
+        <activity
+            android:name=".CustomizeMacrosActivity"
+            android:label="@string/title_activity_customize_macros" >
+        </activity>
     </application>
 
 </manifest>

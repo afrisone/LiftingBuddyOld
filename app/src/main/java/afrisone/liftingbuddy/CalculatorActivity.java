@@ -12,6 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
 
 //TODO: Add error handling for all user input fields to add a default value.
 
@@ -23,7 +25,7 @@ public class CalculatorActivity extends ActionBarActivity {
     private double weight; //kg
     private double activityLevel;
     private double REE;
-    private double TDEE;
+    public double TDEE;
     public static final double POUNDS_TO_KG_CONVERSION = 0.453592;
     public static final double INCHES_TO_CM_CONVERSION = 2.54;
 
@@ -96,12 +98,15 @@ public class CalculatorActivity extends ActionBarActivity {
         weight.setText("Weight (lbs)");
     }
 
-    //Method to set up the submit button
+    //Method to set up the submit button to calculate the TDEE and start the next activity
     private void setUpSubmitButton(){
         Button calculatorSubmit = (Button) findViewById(R.id.button_calculate);
         calculatorSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 calculateTDEE();
+                Intent goalsActivityIntent = new Intent(CalculatorActivity.this, SetGoalsActivity.class);
+                goalsActivityIntent.putExtra("caloriesTDEE", TDEE);
+                startActivity(goalsActivityIntent);
             }
         });
     }

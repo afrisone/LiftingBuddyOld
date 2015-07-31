@@ -17,4 +17,5 @@
     <string name="title_activity_set_goals">SetGoalsActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_customize_macros">CustomizeMacrosActivity</string>
 </resources>
