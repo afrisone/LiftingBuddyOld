@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.util.Log;
-import android.widget.TextView;
 
 
 public class CustomizeMacrosActivity extends ActionBarActivity {
