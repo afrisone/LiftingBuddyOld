@@ -18,6 +18,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     private double calorieChangeFactor;
     private int totalDailyCalories;
     private double TDEE;
+    private double weight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     private void goToMacroActivity(){
         Intent macroActivityIntent = new Intent(SetGoalsActivity.this, CustomizeMacrosActivity.class);
         macroActivityIntent.putExtra("totalCaloriesPerDay", totalDailyCalories);
+        macroActivityIntent.putExtra("weightInKilograms", weight);
         startActivity(macroActivityIntent);
     }
 
@@ -86,6 +88,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     private void getTDEE(){
         Intent intent = getIntent();
         TDEE = intent.getDoubleExtra("caloriesTDEE", 0);
+        weight = intent.getDoubleExtra("weightInKilograms", 0);
     }
 
     //Method to populate the lose and gain weight spinners

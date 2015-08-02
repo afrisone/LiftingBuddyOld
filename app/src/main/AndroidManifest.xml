@@ -24,6 +24,10 @@
             android:name=".CustomizeMacrosActivity"
             android:label="@string/title_activity_customize_macros" >
         </activity>
+        <activity
+            android:name=".FinalCaloriesAndMacrosActivity"
+            android:label="@string/title_activity_final_calories_and_macros" >
+        </activity>
     </application>
 
 </manifest>

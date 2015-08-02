@@ -107,9 +107,14 @@ public class CalculatorActivity extends ActionBarActivity {
                 calculateTDEE();
                 Intent goalsActivityIntent = new Intent(CalculatorActivity.this, SetGoalsActivity.class);
                 goalsActivityIntent.putExtra("caloriesTDEE", TDEE);
+                goalsActivityIntent.putExtra("weightInKilograms", weight);
                 startActivity(goalsActivityIntent);
             }
         });
+    }
+
+    private void setUpIntents(){
+
     }
 
     //Method to populate the spinner to set the activity level
