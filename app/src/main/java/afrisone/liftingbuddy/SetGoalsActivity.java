@@ -19,6 +19,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     private int totalDailyCalories;
     private double TDEE;
     private double weight;
+    private boolean customCaloriesIsFilledIn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,7 @@ public class SetGoalsActivity extends ActionBarActivity {
         submitForCalories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkMissingFieldError((EditText)findViewById(R.id.user_entered_calories))){
                     getGoals();
-                }
             }
         });
     }
@@ -73,14 +72,14 @@ public class SetGoalsActivity extends ActionBarActivity {
         goToMacros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkMissingFieldError((EditText)findViewById(R.id.user_entered_calories))){
+                if (customCaloriesIsFilledIn) {
                     goToMacroActivity();
                 }
             }
         });
     }
 
-    private void goToMacroActivity(){
+    private void goToMacroActivity() {
         Intent macroActivityIntent = new Intent(SetGoalsActivity.this, CustomizeMacrosActivity.class);
         macroActivityIntent.putExtra("totalCaloriesPerDay", totalDailyCalories);
         macroActivityIntent.putExtra("weightInKilograms", weight);
@@ -116,7 +115,7 @@ public class SetGoalsActivity extends ActionBarActivity {
         gainWeightSpinner.setAdapter(spinnerAdapter);
     }
 
-    private void getGoals(){
+    private void getGoals() {
         RadioButton loseWeight = (RadioButton)findViewById(R.id.lose_weight);
         RadioButton maintainWeight = (RadioButton)findViewById(R.id.maintain_weight);
         RadioButton gainWeight = (RadioButton)findViewById(R.id.gain_weight);
@@ -184,7 +183,14 @@ public class SetGoalsActivity extends ActionBarActivity {
 
     private void customCalories(){
         EditText customCalories = (EditText)findViewById(R.id.user_entered_calories);
-        totalDailyCalories = Integer.parseInt(customCalories.getText().toString());
+        if(!checkMissingFieldError(customCalories)){
+            totalDailyCalories = 0;
+            customCaloriesIsFilledIn = false;
+        }
+        else {
+            totalDailyCalories = Integer.parseInt(customCalories.getText().toString());
+            customCaloriesIsFilledIn = true;
+        }
     }
 
     private void changeTotalCalories(){
