@@ -17,6 +17,8 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
     private int totalProtein;
     private int totalFat;
     private int totalCarbohydrates;
+    private boolean customFatIsFilledIn = true;
+    private boolean customProteinIsFilledIn = true;
     private double weightInPounds;
     private final String TAG = CustomizeMacrosActivity.class.getSimpleName();
 
@@ -52,10 +54,12 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
 
     private void setUpFinalResultsButton(){
         Button finalresultsButton = (Button)findViewById(R.id.final_results_button);
-        finalresultsButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                getMacros();
-                goToFinalCaloriesAndMacrosActivity();
+        finalresultsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if (customFatIsFilledIn && customProteinIsFilledIn) {
+                    getMacros();
+                    goToFinalCaloriesAndMacrosActivity();
+                }
             }
         });
     }
@@ -113,6 +117,9 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
 
     private void getCustomProtein(){
         EditText customProtein = (EditText)findViewById(R.id.user_entered_protein);
+        if(!checkMissingFieldError(customProtein)){
+            customProteinIsFilledIn = false;
+        }
         double proteinPerPound = Double.parseDouble(customProtein.getText().toString());
         totalProtein = (int)(weightInPounds * proteinPerPound);
     }
@@ -139,6 +146,9 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
 
     private void getCustomFat(){
         EditText customFat = (EditText)findViewById(R.id.user_entered_fat);
+        if(!checkMissingFieldError(customFat)){
+            customFatIsFilledIn = false;
+        }
         double fatPerPound = Double.parseDouble(customFat.getText().toString());
         totalProtein = (int)(weightInPounds * fatPerPound);
     }
@@ -147,5 +157,15 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         int proteinCalories = totalProtein * 4;
         int fatCalories = totalFat * 9;
         totalCarbohydrates = (totalDailyCalories - proteinCalories - fatCalories) / 4;
+    }
+
+    private boolean checkMissingFieldError(EditText textField){
+        if (textField.getText().toString().equals("")) {
+            textField.setError("You must enter a valid value.");
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }

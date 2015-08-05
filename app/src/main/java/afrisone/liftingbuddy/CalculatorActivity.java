@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.Intent;
+import android.text.TextUtils;
+import android.widget.Toast;
 
 //TODO: Add error handling for all user input fields to add a default value.
 
@@ -63,6 +65,8 @@ public class CalculatorActivity extends ActionBarActivity {
 
     //Change the weight and height from imperial to metric units using the radio buttons
     private void setUnitsUp(){
+        getUnits();
+
         RadioGroup unitChange = (RadioGroup) findViewById(R.id.unit_radio_group);
         unitChange.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -85,6 +89,7 @@ public class CalculatorActivity extends ActionBarActivity {
         hideInchesField.setVisibility(View.GONE);
         height.setText("Height (cm)");
         weight.setText("Weight (kg)");
+        getUnits();
     }
 
     //Set weight and height fields to imperial units
@@ -96,6 +101,7 @@ public class CalculatorActivity extends ActionBarActivity {
         hideInchesField.setVisibility(View.VISIBLE);
         height.setText("Height (ft/in)");
         weight.setText("Weight (lbs)");
+        getUnits();
     }
 
     //Method to set up the submit button to calculate the TDEE and start the next activity
@@ -103,17 +109,19 @@ public class CalculatorActivity extends ActionBarActivity {
         Button calculatorSubmit = (Button) findViewById(R.id.button_calculate);
         calculatorSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                calculateTDEE();
-                Intent goalsActivityIntent = new Intent(CalculatorActivity.this, SetGoalsActivity.class);
-                goalsActivityIntent.putExtra("caloriesTDEE", TDEE);
-                goalsActivityIntent.putExtra("weightInKilograms", weight);
-                startActivity(goalsActivityIntent);
+                if (checkIfAllFieldsAreCompleted()) {
+                    calculateTDEE();
+                    goToNextActivity();
+                }
             }
         });
     }
 
-    private void setUpIntents(){
-
+    private void goToNextActivity(){
+        Intent goalsActivityIntent = new Intent(CalculatorActivity.this, SetGoalsActivity.class);
+        goalsActivityIntent.putExtra("caloriesTDEE", TDEE);
+        goalsActivityIntent.putExtra("weightInKilograms", weight);
+        startActivity(goalsActivityIntent);
     }
 
     //Method to populate the spinner to set the activity level
@@ -143,12 +151,11 @@ public class CalculatorActivity extends ActionBarActivity {
 
     //Method to call all of the getter methods
     private void setValues() {
-        getUnits();
-        getGender();
-        getHeight();
-        getAge();
-        getWeight();
-        getActivityLevel();
+            getGender();
+            getHeight();
+            getAge();
+            getWeight();
+            getActivityLevel();
     }
 
     //Method to determine if metric is selected. Imperial units by default
@@ -171,20 +178,20 @@ public class CalculatorActivity extends ActionBarActivity {
 
     //Method to get the user input for the height
     private void getHeight() {
-        EditText mEdit;
-        mEdit = (EditText) findViewById(R.id.height_input);
+        EditText heightTextBox;
+        heightTextBox = (EditText) findViewById(R.id.height_input);
         if (units.equals("Imperial")) {
-            double feet = Double.parseDouble(mEdit.getText().toString());
+            double feet = Double.parseDouble(heightTextBox.getText().toString());
 
             double inches;
-            mEdit = (EditText) findViewById(R.id.height_in_inches);
-            inches = Double.parseDouble(mEdit.getText().toString());
+            heightTextBox = (EditText) findViewById(R.id.height_in_inches);
+            inches = Double.parseDouble(heightTextBox.getText().toString());
 
             inches += (feet * FEET_TO_INCHES_CONVERSION);
             height = inches * INCHES_TO_CM_CONVERSION;
         }
         else {
-            height = Double.parseDouble(mEdit.getText().toString());
+            height = Double.parseDouble(heightTextBox.getText().toString());
         }
     }
 
@@ -202,9 +209,18 @@ public class CalculatorActivity extends ActionBarActivity {
     }
     //Method to get user input for age
     private void getAge() {
-        EditText mEdit;
-        mEdit = (EditText) findViewById(R.id.age_in_years);
-        age = Double.parseDouble(mEdit.getText().toString());
+        EditText getAge;
+        getAge = (EditText) findViewById(R.id.age_in_years);
+
+        String ageInYears = getAge.getText().toString();
+
+        if(TextUtils.isEmpty(ageInYears)){
+            //Toast.makeText(this, "You must enter a valid age", Toast.LENGTH_LONG).show();
+            getAge.setError("You must enter a valid age");
+                        return;
+        }
+
+        age = Double.parseDouble(ageInYears);
     }
 
     //Method to get user input for the activity level
@@ -225,6 +241,34 @@ public class CalculatorActivity extends ActionBarActivity {
             case "Very active":
                 activityLevel = 1.725;
                 break;
+        }
+    }
+
+    private boolean checkIfAllFieldsAreCompleted(){
+        EditText heightField = (EditText)findViewById(R.id.height_input);
+        EditText ageField = (EditText)findViewById(R.id.age_in_years);
+        EditText weightField = (EditText)findViewById(R.id.weight_input);
+        EditText inchesField = (EditText)findViewById(R.id.height_in_inches);
+
+        if(units.equals("Imperial") && !checkMissingFieldError(inchesField)){
+            return false;
+        }
+        if(!checkMissingFieldError(heightField) || !checkMissingFieldError(ageField) ||
+                !checkMissingFieldError(weightField)){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    private boolean checkMissingFieldError(EditText textField){
+        if(textField.getText().toString().equals("")){
+            textField.setError("You must enter a valid value.");
+            return false;
+        }
+        else{
+            return true;
         }
     }
 }

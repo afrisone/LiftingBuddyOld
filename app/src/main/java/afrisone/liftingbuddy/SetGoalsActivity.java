@@ -24,7 +24,6 @@ public class SetGoalsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_goals);
-
         setUpButtons();
         getTDEE();
         setUpGoalSpinners();
@@ -62,7 +61,9 @@ public class SetGoalsActivity extends ActionBarActivity {
         submitForCalories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getGoals();
+                if(checkMissingFieldError((EditText)findViewById(R.id.user_entered_calories))){
+                    getGoals();
+                }
             }
         });
     }
@@ -72,7 +73,9 @@ public class SetGoalsActivity extends ActionBarActivity {
         goToMacros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToMacroActivity();
+                if(checkMissingFieldError((EditText)findViewById(R.id.user_entered_calories))){
+                    goToMacroActivity();
+                }
             }
         });
     }
@@ -193,4 +196,13 @@ public class SetGoalsActivity extends ActionBarActivity {
         displayCalories.setText(String.valueOf(totalDailyCalories));
     }
 
+    private boolean checkMissingFieldError(EditText textField) {
+        if (textField.getText().toString().equals("")) {
+            textField.setError("You must enter a valid value.");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

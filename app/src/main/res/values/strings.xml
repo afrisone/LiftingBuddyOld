@@ -20,4 +20,5 @@
     <string name="title_activity_customize_macros">CustomizeMacrosActivity</string>
     <string name="carb_notification">Carbohydrates will be automatically calculated based on the remaining calories</string>
     <string name="title_activity_final_calories_and_macros">FinalCaloriesAndMacrosActivity</string>
+    <string name="title_activity_missing_information_from_user">MissingInformationFromUser</string>
 </resources>
