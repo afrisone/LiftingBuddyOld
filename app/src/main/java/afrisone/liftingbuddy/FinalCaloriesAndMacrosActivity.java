@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.util.Log;
 
 
 public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
@@ -14,17 +13,13 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
     private int totalFat;
     private int totalCarbohydrates;
     private int totalDailyCalories;
-    private final String TAG = FinalCaloriesAndMacrosActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_calories_and_macros);
-        Log.d(TAG, "onCreate() successful");
 
         getMacronutrients();
-        Log.d(TAG, "getMacro successful");
         displayMacrosOnScreen();
-        Log.d(TAG, "displayMacro successful");
     }
 
     @Override

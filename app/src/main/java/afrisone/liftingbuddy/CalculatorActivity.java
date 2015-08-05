@@ -13,10 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.Intent;
-import android.text.TextUtils;
-import android.widget.Toast;
 
-//TODO: Add error handling for all user input fields to add a default value.
 
 public class CalculatorActivity extends ActionBarActivity {
     private String gender;
@@ -197,30 +194,21 @@ public class CalculatorActivity extends ActionBarActivity {
 
     //Method to get user input for weight
     private void getWeight() {
-        EditText mEdit;
-        mEdit = (EditText) findViewById(R.id.weight_input);
+        EditText weightTextBox;
+        weightTextBox = (EditText) findViewById(R.id.weight_input);
         if (units.equals("Imperial")) {
-            double pounds = Double.parseDouble(mEdit.getText().toString());
+            double pounds = Double.parseDouble(weightTextBox.getText().toString());
             weight = pounds * POUNDS_TO_KG_CONVERSION;
         } else {
-            weight = Double.parseDouble(mEdit.getText().toString());
+            weight = Double.parseDouble(weightTextBox.getText().toString());
 
         }
     }
     //Method to get user input for age
     private void getAge() {
-        EditText getAge;
-        getAge = (EditText) findViewById(R.id.age_in_years);
-
-        String ageInYears = getAge.getText().toString();
-
-        if(TextUtils.isEmpty(ageInYears)){
-            //Toast.makeText(this, "You must enter a valid age", Toast.LENGTH_LONG).show();
-            getAge.setError("You must enter a valid age");
-                        return;
-        }
-
-        age = Double.parseDouble(ageInYears);
+        EditText ageTextBox;
+        ageTextBox = (EditText) findViewById(R.id.age_in_years);
+        age = Double.parseDouble(ageTextBox.getText().toString());
     }
 
     //Method to get user input for the activity level
