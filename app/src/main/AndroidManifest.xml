@@ -28,10 +28,6 @@
             android:name=".FinalCaloriesAndMacrosActivity"
             android:label="@string/title_activity_final_calories_and_macros" >
         </activity>
-        <activity
-            android:name=".MissingInformationFromUser"
-            android:label="@string/title_activity_missing_information_from_user" >
-        </activity>
     </application>
 
 </manifest>
