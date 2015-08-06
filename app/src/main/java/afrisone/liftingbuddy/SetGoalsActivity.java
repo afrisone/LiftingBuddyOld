@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 public class SetGoalsActivity extends ActionBarActivity {
-    private double calorieChangeFactor;
+    private double calorieMultiplier;
     private int totalDailyCalories;
     private double TDEE;
     private double weight;
@@ -119,6 +119,7 @@ public class SetGoalsActivity extends ActionBarActivity {
         RadioButton loseWeight = (RadioButton)findViewById(R.id.lose_weight);
         RadioButton maintainWeight = (RadioButton)findViewById(R.id.maintain_weight);
         RadioButton gainWeight = (RadioButton)findViewById(R.id.gain_weight);
+        customCaloriesIsFilledIn = true;
 
         if(loseWeight.isChecked()){
             loseWeight();
@@ -143,13 +144,13 @@ public class SetGoalsActivity extends ActionBarActivity {
 
         switch (weightLossGoal) {
             case "15%":
-                calorieChangeFactor = 0.85;
+                calorieMultiplier = 0.85;
                 break;
             case "20%":
-                calorieChangeFactor = 0.8;
+                calorieMultiplier = 0.8;
                 break;
             case "25%":
-                calorieChangeFactor = 0.75;
+                calorieMultiplier = 0.75;
                 break;
         }
 
@@ -158,7 +159,7 @@ public class SetGoalsActivity extends ActionBarActivity {
 
     //If the user's goal is to maintain weight, keep the calories the same as TDEE
     private void maintainWeight(){
-        calorieChangeFactor = 1;
+        calorieMultiplier = 1;
         changeTotalCalories();
     }
 
@@ -169,13 +170,13 @@ public class SetGoalsActivity extends ActionBarActivity {
 
         switch(weightGainGoal){
             case "5%":
-                calorieChangeFactor = 1.05;
+                calorieMultiplier = 1.05;
                 break;
             case "10%":
-                calorieChangeFactor = 1.1;
+                calorieMultiplier = 1.1;
                 break;
             case "15%":
-                calorieChangeFactor = 1.15;
+                calorieMultiplier = 1.15;
                 break;
         }
         changeTotalCalories();
@@ -189,12 +190,12 @@ public class SetGoalsActivity extends ActionBarActivity {
         }
         else {
             totalDailyCalories = Integer.parseInt(customCalories.getText().toString());
-            customCaloriesIsFilledIn = true;
+
         }
     }
 
     private void changeTotalCalories(){
-        totalDailyCalories = (int) (TDEE * calorieChangeFactor);
+        totalDailyCalories = (int) (TDEE * calorieMultiplier);
     }
 
     private void displayCaloriesOnScreen(){

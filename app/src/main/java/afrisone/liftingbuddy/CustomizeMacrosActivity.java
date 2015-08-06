@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.util.Log;
 
 
 public class CustomizeMacrosActivity extends ActionBarActivity {
@@ -20,13 +19,11 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
     private boolean customFatIsFilledIn = true;
     private boolean customProteinIsFilledIn = true;
     private double weightInPounds;
-    private final String TAG = CustomizeMacrosActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize_macros);
-        Log.d(TAG, "inCustomize");
 
         setUpFinalResultsButton();
         getWeightAndCalories();
@@ -56,8 +53,8 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         Button finalresultsButton = (Button)findViewById(R.id.final_results_button);
         finalresultsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                getMacros();
                 if (customFatIsFilledIn && customProteinIsFilledIn) {
-                    getMacros();
                     goToFinalCaloriesAndMacrosActivity();
                 }
             }
@@ -100,6 +97,7 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         RadioButton protein08 = (RadioButton)findViewById(R.id.protein_08);
         RadioButton protein09 = (RadioButton)findViewById(R.id.protein_09);
         RadioButton proteinCustom = (RadioButton)findViewById(R.id.protein_custom);
+        customProteinIsFilledIn = true;
 
         if(protein07.isChecked()){
             totalProtein = (int)(weightInPounds *0.70);
@@ -120,8 +118,10 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         if(!checkMissingFieldError(customProtein)){
             customProteinIsFilledIn = false;
         }
-        double proteinPerPound = Double.parseDouble(customProtein.getText().toString());
-        totalProtein = (int)(weightInPounds * proteinPerPound);
+        else {
+            double proteinPerPound = Double.parseDouble(customProtein.getText().toString());
+            totalProtein = (int) (weightInPounds * proteinPerPound);
+        }
     }
 
     private void getFat(){
@@ -129,6 +129,7 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         RadioButton fat40 = (RadioButton)findViewById(R.id.fat_40);
         RadioButton fat45 = (RadioButton)findViewById(R.id.fat_45);
         RadioButton fatCustom = (RadioButton)findViewById(R.id.fat_custom);
+        customFatIsFilledIn = true;
 
         if(fat35.isChecked()){
             totalFat = (int)(weightInPounds * 0.35);
@@ -149,8 +150,10 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         if(!checkMissingFieldError(customFat)){
             customFatIsFilledIn = false;
         }
-        double fatPerPound = Double.parseDouble(customFat.getText().toString());
-        totalProtein = (int)(weightInPounds * fatPerPound);
+        else {
+            double fatPerPound = Double.parseDouble(customFat.getText().toString());
+            totalProtein = (int) (weightInPounds * fatPerPound);
+        }
     }
 
     private void calculateCarbohydrates(){
