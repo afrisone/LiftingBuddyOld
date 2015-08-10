@@ -60,28 +60,32 @@
             android:layout_height="50dp"
             android:text="Lose Weight"
             android:id="@+id/lose_weight"
-            android:checked="false" />
+            android:checked="false"
+            android:buttonTint="@color/Green"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Maintain"
             android:id="@+id/maintain_weight"
-            android:checked="true" />
+            android:checked="true"
+            android:buttonTint="@color/Green"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Gain Weight"
             android:id="@+id/gain_weight"
-            android:checked="false" />
+            android:checked="false"
+            android:buttonTint="@color/Green"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Custom Calories"
             android:id="@+id/custom_goals"
-            android:checked="false" />
+            android:checked="false"
+            android:buttonTint="@color/Green"/>
     </RadioGroup>
 
     <EditText
@@ -105,7 +109,7 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="Next"
         android:id="@+id/go_to_macros"
         android:layout_below="@+id/display_calories"
@@ -113,14 +117,14 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="26dp"
         android:background="@drawable/roundedbutton"
-        android:textColor="@color/NeonGreen"
+        android:textColor="@color/SnowyGray"
         android:padding="5dp"
         android:textSize="14sp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="Submit"
         android:id="@+id/submit_for_calories"
         android:longClickable="true"
@@ -128,7 +132,7 @@
         android:layout_alignRight="@+id/user_entered_calories"
         android:layout_alignEnd="@+id/user_entered_calories"
         android:background="@drawable/roundedbutton"
-        android:textColor="@color/NeonGreen"
+        android:textColor="@color/SnowyGray"
         android:padding="5dp"
         android:textSize="14sp" />
 

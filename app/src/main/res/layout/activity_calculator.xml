@@ -46,7 +46,8 @@
                 android:text="@string/imperial"
                 android:id="@+id/imperial_units"
                 android:checked="true"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:buttonTint="@color/Green"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
                 android:text="@string/metric"
                 android:id="@+id/metric_units"
                 android:checked="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:buttonTint="@color/Green"/>
             </RadioGroup>
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -71,7 +73,8 @@
                 android:text="@string/male"
                 android:id="@+id/genderMale"
                 android:checked="true"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:buttonTint="@color/Green"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -79,7 +82,8 @@
                 android:text="@string/female"
                 android:id="@+id/genderFemale"
                 android:checked="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:buttonTint="@color/Green"/>
         </RadioGroup>
 
         <TextView
@@ -169,14 +173,14 @@
 
         <Button
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="@string/calculate"
             android:id="@+id/button_calculate"
             android:layout_row="6"
             android:layout_column="2"
             android:background="@drawable/roundedbutton"
-            android:textColor="@color/NeonGreen"
-            android:padding="5dp"
+            android:textColor="@color/SnowyGray"
+
             android:textSize="14sp" />
 
     </GridLayout>

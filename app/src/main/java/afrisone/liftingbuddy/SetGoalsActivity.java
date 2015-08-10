@@ -63,12 +63,16 @@ public class SetGoalsActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                     getGoals();
+
+                    Button goToMacros = (Button)findViewById(R.id.go_to_macros);
+                    goToMacros.setVisibility(View.VISIBLE);
             }
         });
     }
 
     private void setUpNextActivityButton(){
         Button goToMacros = (Button)findViewById(R.id.go_to_macros);
+        goToMacros.setVisibility(View.INVISIBLE);
         goToMacros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +114,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     //Method to populate the gain weight spinner
     private void setUpGainWeightSpinner(){
         Spinner gainWeightSpinner = (Spinner) findViewById(R.id.gain_weight_spinner);
-        String[] gainWeightGoals = new String[]{"5%", "10%", "15%"};
+        String[] gainWeightGoals = new String[]{"C5%", "10%", "15%"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, gainWeightGoals);
         gainWeightSpinner.setAdapter(spinnerAdapter);
     }
