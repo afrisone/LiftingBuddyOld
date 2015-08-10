@@ -9,9 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.content.Intent;
 import android.widget.TextView;
+
 
 
 public class SetGoalsActivity extends ActionBarActivity {
@@ -26,6 +28,7 @@ public class SetGoalsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_goals);
         setUpButtons();
+        setRadioGroupListener();
         getTDEE();
         setUpGoalSpinners();
     }
@@ -62,10 +65,10 @@ public class SetGoalsActivity extends ActionBarActivity {
         submitForCalories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    getGoals();
+                getGoals();
 
-                    Button goToMacros = (Button)findViewById(R.id.go_to_macros);
-                    goToMacros.setVisibility(View.VISIBLE);
+                Button goToMacros = (Button) findViewById(R.id.go_to_macros);
+                goToMacros.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -114,7 +117,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     //Method to populate the gain weight spinner
     private void setUpGainWeightSpinner(){
         Spinner gainWeightSpinner = (Spinner) findViewById(R.id.gain_weight_spinner);
-        String[] gainWeightGoals = new String[]{"C5%", "10%", "15%"};
+        String[] gainWeightGoals = new String[]{"5%", "10%", "15%"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, gainWeightGoals);
         gainWeightSpinner.setAdapter(spinnerAdapter);
     }
@@ -214,6 +217,26 @@ public class SetGoalsActivity extends ActionBarActivity {
         }
         else{
             return true;
+        }
+    }
+
+    private void setRadioGroupListener() {
+        RadioGroup goalGroup = (RadioGroup) findViewById(R.id.goal_group);
+
+        goalGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                clearCustomErrorMessages();
+            }
+        });
+    }
+
+    private void clearCustomErrorMessages(){
+        RadioButton customCalories = (RadioButton)findViewById(R.id.custom_goals);
+
+        if(!customCalories.isChecked()){
+            TextView userEnteredProtein = (TextView)findViewById(R.id.user_entered_calories);
+            userEnteredProtein.setError(null);
         }
     }
 }
