@@ -1,6 +1,7 @@
 package afrisone.liftingbuddy;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 
 public class CustomizeMacrosActivity extends ActionBarActivity {
@@ -25,8 +28,9 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize_macros);
 
-        setUpFinalResultsButton();
         getWeightAndCalories();
+        setRadioGroupListeners();
+        setUpFinalResultsButton();
     }
 
     @Override
@@ -47,6 +51,33 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setRadioGroupListeners(){
+        setProteinListener();
+        setFatListener();
+    }
+
+    private void setProteinListener(){
+        RadioGroup proteinGroup = (RadioGroup)findViewById(R.id.protein_group);
+
+        proteinGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                clearCustomErrorMessages();
+            }
+        });
+    }
+
+    private void setFatListener(){
+        RadioGroup fatGroup = (RadioGroup)findViewById(R.id.fat_group);
+
+        fatGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId){
+                clearCustomErrorMessages();
+            }
+        });
     }
 
     private void setUpFinalResultsButton(){
@@ -152,7 +183,7 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         }
         else {
             double fatPerPound = Double.parseDouble(customFat.getText().toString());
-            totalProtein = (int) (weightInPounds * fatPerPound);
+            totalFat = (int) (weightInPounds * fatPerPound);
         }
     }
 
@@ -169,6 +200,20 @@ public class CustomizeMacrosActivity extends ActionBarActivity {
         }
         else{
             return true;
+        }
+    }
+
+    private void clearCustomErrorMessages(){
+        RadioButton customProtein = (RadioButton)findViewById(R.id.protein_custom);
+        RadioButton customFat = (RadioButton)findViewById(R.id.fat_custom);
+
+        if(!customProtein.isChecked()){
+            TextView userEnteredProtein = (TextView)findViewById(R.id.user_entered_protein);
+            userEnteredProtein.setError(null);
+        }
+        if(!customFat.isChecked()){
+            TextView userEnteredFat = (TextView)findViewById(R.id.user_entered_fat);
+            userEnteredFat.setError(null);
         }
     }
 }

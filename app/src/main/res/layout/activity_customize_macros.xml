@@ -32,7 +32,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Fat"
         android:id="@+id/textView8"
-        android:layout_below="@+id/radioGroup2"
+        android:layout_below="@+id/protein_group"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
 
@@ -42,7 +42,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/carb_notification"
         android:id="@+id/textView21"
-        android:layout_below="@+id/radioGroup"
+        android:layout_below="@+id/fat_group"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
@@ -63,7 +63,7 @@
         android:layout_below="@+id/test"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/radioGroup2">
+        android:id="@+id/protein_group">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup"
+        android:id="@+id/fat_group"
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -157,7 +157,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="g per pound"
         android:id="@+id/textView23"
-        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_alignBottom="@+id/fat_group"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="14sp" />
@@ -168,7 +168,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/user_entered_fat"
-        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_alignBottom="@+id/fat_group"
         android:layout_toLeftOf="@+id/textView23"
         android:layout_alignLeft="@+id/user_entered_protein"
         android:layout_alignStart="@+id/user_entered_protein" />
