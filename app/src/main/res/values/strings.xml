@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LiftingBuddy</string>
+    <string name="app_name">Lifting Buddy</string>
 
     <string name="measurement_units">Units</string>
     <string name="action_settings">Settings</string>
@@ -14,11 +14,8 @@
     <string name="imperial">Imperial</string>
     <string name="metric">Metric</string>
     <string name="goal">I am trying to...</string>
-    <string name="title_activity_set_goals">SetGoalsActivity</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_customize_macros">CustomizeMacrosActivity</string>
+    <string name="title_activity_set_goals">Set Your Goals</string>
+    <string name="title_activity_customize_macros">Customize Your Macros</string>
     <string name="carb_notification">Carbohydrates will be automatically calculated based on the remaining calories</string>
-    <string name="title_activity_final_calories_and_macros">FinalCaloriesAndMacrosActivity</string>
-    <string name="title_activity_missing_information_from_user">MissingInformationFromUser</string>
+    <string name="title_activity_final_calories_and_macros">Final Results</string>
 </resources>
