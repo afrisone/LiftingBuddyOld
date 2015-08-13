@@ -20,4 +20,7 @@
     <string name="title_activity_final_calories_and_macros">Final Results</string>
     <string name="title_activity_home_screen">HomeScreen</string>
     <string name="set_personal_info">Personal Information</string>
+    <string name="title_activity_journal">Journal</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

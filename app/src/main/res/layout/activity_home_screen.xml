@@ -21,4 +21,21 @@
         android:shadowRadius="10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight Lifting Journal"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:id="@+id/weight_lifting_journal"
+        android:background="@drawable/main_menu_buttons"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="10"
+        android:layout_below="@+id/calculator_button"
+        android:layout_alignLeft="@+id/calculator_button"
+        android:layout_alignStart="@+id/calculator_button"
+        android:layout_marginTop="47dp" />
 </RelativeLayout>

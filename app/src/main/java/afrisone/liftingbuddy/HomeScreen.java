@@ -16,7 +16,7 @@ public class HomeScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        setUpCalculatorButton();
+        setUpNextActivityButtons();
     }
 
     @Override
@@ -41,6 +41,11 @@ public class HomeScreen extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void setUpNextActivityButtons(){
+        setUpCalculatorButton();
+        setUpJournalButton();
+    }
+
     private void setUpCalculatorButton(){
         Button calculatorButton = (Button)findViewById(R.id.calculator_button);
 
@@ -52,4 +57,18 @@ public class HomeScreen extends ActionBarActivity {
             }
         });
     }
+
+    private void setUpJournalButton(){
+        Button journalButton = (Button)findViewById(R.id.weight_lifting_journal);
+
+        journalButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent startJournal = new Intent(HomeScreen.this, Journal.class);
+                startActivity(startJournal);
+            }
+        });
+    }
+
+
 }
