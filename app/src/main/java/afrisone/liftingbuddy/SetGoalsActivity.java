@@ -15,7 +15,6 @@ import android.content.Intent;
 import android.widget.TextView;
 
 
-
 public class SetGoalsActivity extends ActionBarActivity {
     private double calorieMultiplier;
     private int totalDailyCalories;
@@ -109,7 +108,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     //Method to populate the lose weight spinner
     private void setUpLoseWeightSpinner(){
         Spinner loseWeightSpinner = (Spinner) findViewById(R.id.lose_weight_spinner);
-        String[] loseWeightGoals = new String[]{"15%", "20%", "25%"};
+        String[] loseWeightGoals = new String[]{"Cut 15%", "Cut 20%", "Cut 25%"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, loseWeightGoals);
         loseWeightSpinner.setAdapter(spinnerAdapter);
     }
@@ -117,7 +116,7 @@ public class SetGoalsActivity extends ActionBarActivity {
     //Method to populate the gain weight spinner
     private void setUpGainWeightSpinner(){
         Spinner gainWeightSpinner = (Spinner) findViewById(R.id.gain_weight_spinner);
-        String[] gainWeightGoals = new String[]{"5%", "10%", "15%"};
+        String[] gainWeightGoals = new String[]{"Add 5%", "Add 10%", "Add 15%"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, gainWeightGoals);
         gainWeightSpinner.setAdapter(spinnerAdapter);
     }
@@ -150,13 +149,13 @@ public class SetGoalsActivity extends ActionBarActivity {
         String weightLossGoal = weightLossSpinner.getSelectedItem().toString();
 
         switch (weightLossGoal) {
-            case "15%":
+            case "Cut 15%":
                 calorieMultiplier = 0.85;
                 break;
-            case "20%":
+            case "Cut 20%":
                 calorieMultiplier = 0.8;
                 break;
-            case "25%":
+            case "Cut 25%":
                 calorieMultiplier = 0.75;
                 break;
         }
@@ -176,13 +175,13 @@ public class SetGoalsActivity extends ActionBarActivity {
         String weightGainGoal = weightGainSpinner.getSelectedItem().toString();
 
         switch(weightGainGoal){
-            case "5%":
+            case "Add 5%":
                 calorieMultiplier = 1.05;
                 break;
-            case "10%":
+            case "Add 10%":
                 calorieMultiplier = 1.1;
                 break;
-            case "15%":
+            case "Add 15%":
                 calorieMultiplier = 1.15;
                 break;
         }

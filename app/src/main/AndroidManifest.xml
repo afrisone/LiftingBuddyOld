@@ -8,13 +8,17 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".CalculatorActivity"
-            android:label="@string/app_name" >
+            android:name=".HomeScreen"
+            android:label="@string/title_activity_home_screen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CalculatorActivity"
+            android:label="@string/set_personal_info" >
         </activity>
         <activity
             android:name=".SetGoalsActivity"
@@ -28,6 +32,7 @@
             android:name=".FinalCaloriesAndMacrosActivity"
             android:label="@string/title_activity_final_calories_and_macros" >
         </activity>
+
     </application>
 
 </manifest>
