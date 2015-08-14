@@ -4,12 +4,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".Calculator"
-    android:background="@color/SnowyGray">
+    android:background="@color/Bluish">
 
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/lightbackground"
+        android:padding="20dp">
 
         <TextView
             android:layout_width="90dp"
@@ -47,7 +49,7 @@
                 android:id="@+id/imperial_units"
                 android:checked="true"
                 android:textSize="18sp"
-                android:buttonTint="@color/Green"/>
+                android:buttonTint="@color/Bluish"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -56,7 +58,7 @@
                 android:id="@+id/metric_units"
                 android:checked="false"
                 android:textSize="18sp"
-                android:buttonTint="@color/Green"/>
+                android:buttonTint="@color/Bluish"/>
         </RadioGroup>
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -74,7 +76,7 @@
                 android:id="@+id/genderMale"
                 android:checked="true"
                 android:textSize="18sp"
-                android:buttonTint="@color/Green"/>
+                android:buttonTint="@color/Bluish"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -83,7 +85,7 @@
                 android:id="@+id/genderFemale"
                 android:checked="false"
                 android:textSize="18sp"
-                android:buttonTint="@color/Green"/>
+                android:buttonTint="@color/Bluish"/>
         </RadioGroup>
 
         <TextView

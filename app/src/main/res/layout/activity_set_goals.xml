@@ -5,135 +5,142 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="afrisone.liftingbuddy.SetGoalsActivity"
-    android:background="@color/SnowyGray">
+    android:background="@color/Bluish">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/goal"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Spinner
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:id="@+id/gain_weight_spinner"
-        android:layout_above="@+id/user_entered_calories"
-        android:layout_alignLeft="@+id/lose_weight_spinner"
-        android:layout_alignStart="@+id/lose_weight_spinner" />
-
-    <Spinner
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:id="@+id/lose_weight_spinner"
-        android:layout_below="@+id/textView3"
-        android:layout_toRightOf="@+id/textView22"
-        android:layout_toEndOf="@+id/textView22" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your Calories are..."
-        android:id="@+id/textView22"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/goal_group"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@color/SnowyGray"
+        android:padding="15dp">
 
-
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/goal_group"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <RadioButton
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="Lose Weight"
-            android:id="@+id/lose_weight"
-            android:checked="false"
-            android:buttonTint="@color/Green"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/goal"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="110dp"
             android:layout_height="50dp"
-            android:text="Maintain"
-            android:id="@+id/maintain_weight"
-            android:checked="true"
-            android:buttonTint="@color/Green"/>
+            android:id="@+id/gain_weight_spinner"
+            android:layout_above="@+id/user_entered_calories"
+            android:layout_alignLeft="@+id/lose_weight_spinner"
+            android:layout_alignStart="@+id/lose_weight_spinner" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="110dp"
             android:layout_height="50dp"
-            android:text="Gain Weight"
-            android:id="@+id/gain_weight"
-            android:checked="false"
-            android:buttonTint="@color/Green"/>
+            android:id="@+id/lose_weight_spinner"
+            android:layout_below="@+id/textView3"
+            android:layout_toRightOf="@+id/textView22"
+            android:layout_toEndOf="@+id/textView22" />
 
-        <RadioButton
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Custom Calories"
-            android:id="@+id/custom_goals"
-            android:checked="false"
-            android:buttonTint="@color/Green"/>
-    </RadioGroup>
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your Calories are..."
+            android:id="@+id/textView22"
+            android:layout_marginTop="80dp"
+            android:layout_below="@+id/goal_group"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/user_entered_calories"
-        android:layout_alignBottom="@+id/goal_group"
-        android:layout_alignRight="@+id/go_to_macros"
-        android:layout_alignEnd="@+id/go_to_macros" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/display_calories"
-        android:layout_alignBottom="@+id/textView22"
-        android:layout_alignRight="@+id/gain_weight_spinner"
-        android:layout_alignEnd="@+id/gain_weight_spinner" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:text="Next"
-        android:id="@+id/go_to_macros"
-        android:layout_below="@+id/display_calories"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="26dp"
-        android:background="@drawable/roundedbutton"
-        android:textColor="@color/SnowyGray"
-        android:padding="5dp"
-        android:textSize="14sp" />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/goal_group"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:text="Submit"
-        android:id="@+id/submit_for_calories"
-        android:longClickable="true"
-        android:layout_below="@+id/user_entered_calories"
-        android:layout_alignRight="@+id/user_entered_calories"
-        android:layout_alignEnd="@+id/user_entered_calories"
-        android:background="@drawable/roundedbutton"
-        android:textColor="@color/SnowyGray"
-        android:padding="5dp"
-        android:textSize="14sp" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Lose Weight"
+                android:id="@+id/lose_weight"
+                android:checked="false"
+                android:buttonTint="@color/Bluish"/>
 
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Maintain"
+                android:id="@+id/maintain_weight"
+                android:checked="true"
+                android:buttonTint="@color/Bluish"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Gain Weight"
+                android:id="@+id/gain_weight"
+                android:checked="false"
+                android:buttonTint="@color/Bluish"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Custom Calories"
+                android:id="@+id/custom_goals"
+                android:checked="false"
+                android:buttonTint="@color/Bluish"/>
+        </RadioGroup>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/user_entered_calories"
+            android:layout_alignBottom="@+id/goal_group"
+            android:layout_alignRight="@+id/go_to_macros"
+            android:layout_alignEnd="@+id/go_to_macros" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/display_calories"
+            android:layout_alignBottom="@+id/textView22"
+            android:layout_alignRight="@+id/gain_weight_spinner"
+            android:layout_alignEnd="@+id/gain_weight_spinner" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Next"
+            android:id="@+id/go_to_macros"
+            android:layout_below="@+id/display_calories"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/roundedbutton"
+            android:textColor="@color/SnowyGray"
+            android:padding="5dp"
+            android:textSize="14sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Submit"
+            android:id="@+id/submit_for_calories"
+            android:longClickable="true"
+            android:layout_below="@+id/user_entered_calories"
+            android:layout_alignRight="@+id/user_entered_calories"
+            android:layout_alignEnd="@+id/user_entered_calories"
+            android:background="@drawable/roundedbutton"
+            android:textColor="@color/SnowyGray"
+            android:padding="5dp"
+            android:textSize="14sp" />
+
+        </RelativeLayout>
 </RelativeLayout>
