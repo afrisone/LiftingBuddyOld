@@ -140,9 +140,9 @@ public class CalculatorActivity extends ActionBarActivity {
         setValues();
 
         if (gender.equals("Female")) {
-            REE = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+            REE = (9.99 * weight) + (6.25 * height) - (4.92 * age) - 161;
         } else {
-            REE = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            REE = (9.99 * weight) + (6.25 * height) - (4.92 * age) + 5;
         }
     }
 
@@ -221,13 +221,13 @@ public class CalculatorActivity extends ActionBarActivity {
                 activityLevel = 1.2;
                 break;
             case "Light activity":
-                activityLevel = 1.375;
+                activityLevel = 1.3;
                 break;
             case "Moderate activity":
-                activityLevel = 1.55;
+                activityLevel = 1.5;
                 break;
             case "Very active":
-                activityLevel = 1.725;
+                activityLevel = 1.7;
                 break;
         }
     }

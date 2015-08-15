@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/lightbackground"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:id="@+id/relativeLayout6">
 
 
         <TextView
@@ -105,4 +106,17 @@
             android:layout_alignStart="@+id/fat_per_day" />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/end_disclaimer"
+        android:textColor="@color/SnowyGray"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/relativeLayout6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp" />
+
 </RelativeLayout>

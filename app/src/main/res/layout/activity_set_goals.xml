@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/lightbackground"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:id="@+id/relativeLayout2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,34 +23,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
-        <Spinner
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:id="@+id/gain_weight_spinner"
-            android:layout_above="@+id/user_entered_calories"
-            android:layout_alignLeft="@+id/lose_weight_spinner"
-            android:layout_alignStart="@+id/lose_weight_spinner" />
-
-        <Spinner
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:id="@+id/lose_weight_spinner"
-            android:layout_below="@+id/textView3"
-            android:layout_toRightOf="@+id/textView22"
-            android:layout_toEndOf="@+id/textView22" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Your Calories are..."
-            android:id="@+id/textView22"
-            android:layout_marginTop="80dp"
-            android:layout_below="@+id/goal_group"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
 
 
         <RadioGroup
@@ -67,7 +40,10 @@
                 android:text="Lose Weight"
                 android:id="@+id/lose_weight"
                 android:checked="false"
-                android:buttonTint="@color/Bluish"/>
+                android:buttonTint="@color/Bluish"
+                android:layout_below="@+id/go_to_macros"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -101,31 +77,25 @@
             android:ems="10"
             android:id="@+id/user_entered_calories"
             android:layout_alignBottom="@+id/goal_group"
-            android:layout_alignRight="@+id/go_to_macros"
-            android:layout_alignEnd="@+id/go_to_macros" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/display_calories"
-            android:layout_alignBottom="@+id/textView22"
-            android:layout_alignRight="@+id/gain_weight_spinner"
-            android:layout_alignEnd="@+id/gain_weight_spinner" />
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="Next"
-            android:id="@+id/go_to_macros"
-            android:layout_below="@+id/display_calories"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="26dp"
-            android:background="@drawable/roundedbutton"
-            android:textColor="@color/SnowyGray"
-            android:padding="5dp"
-            android:textSize="14sp" />
+            android:layout_alignParentEnd="true" />
+
+
+        <Spinner
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:id="@+id/gain_weight_spinner"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Spinner
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:id="@+id/lose_weight_spinner"
+            android:layout_alignTop="@+id/goal_group"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -134,13 +104,61 @@
             android:text="Submit"
             android:id="@+id/submit_for_calories"
             android:longClickable="true"
-            android:layout_below="@+id/user_entered_calories"
-            android:layout_alignRight="@+id/user_entered_calories"
-            android:layout_alignEnd="@+id/user_entered_calories"
             android:background="@drawable/roundedbutton"
             android:textColor="@color/SnowyGray"
             android:padding="5dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_below="@+id/goal_group"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
 
-        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/lightbackground"
+        android:padding="15dp"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relativeLayout5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your Calories are..."
+            android:id="@+id/textView22"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/display_calories"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Next"
+        android:id="@+id/go_to_macros"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/SnowyGray"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/relativeLayout5"
+        android:layout_alignEnd="@+id/relativeLayout5" />
+
 </RelativeLayout>
