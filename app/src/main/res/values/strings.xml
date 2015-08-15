@@ -23,7 +23,7 @@
     <string name="title_activity_journal">Journal</string>
     <string name="end_disclaimer">Please use this calculator as a rough estimate. Every person is different
         and may need more or less calories. It is recommended that you use these numbers as a starting point
-        for a few weeks and then add/remove calories as needed.</string>
+        for a few weeks and then add/remove calories as necessary.</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>
