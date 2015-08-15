@@ -123,6 +123,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/height_input"
+            android:imeOptions="flagNoExtractUi"
             android:layout_below="@+id/radioGroup"
             android:layout_alignLeft="@+id/radioGroup"
             android:layout_alignStart="@+id/radioGroup" />
@@ -133,6 +134,7 @@
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/height_in_inches"
+            android:imeOptions="flagNoExtractUi"
             android:layout_below="@+id/radioGroup"
             android:layout_toRightOf="@+id/height_input"
             android:layout_toEndOf="@+id/height_input" />
@@ -158,6 +160,7 @@
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/age_in_years"
+            android:imeOptions="flagNoExtractUi"
             android:paddingLeft="10dp"
             android:layout_alignTop="@+id/textView2"
             android:layout_alignLeft="@+id/height_input"
@@ -184,6 +187,7 @@
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/weight_input"
+            android:imeOptions="flagNoExtractUi"
             android:paddingLeft="10dp"
             android:layout_alignTop="@+id/weight"
             android:layout_alignLeft="@+id/age_in_years"

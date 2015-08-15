@@ -82,6 +82,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/user_entered_calories"
+            android:imeOptions="flagNoExtractUi"
             android:layout_alignBottom="@+id/goal_group"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

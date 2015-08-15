@@ -79,6 +79,7 @@
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/user_entered_protein"
+            android:imeOptions="flagNoExtractUi"
             android:layout_alignBottom="@+id/protein_group"
             android:layout_toLeftOf="@+id/textView7"
             android:layout_toStartOf="@+id/textView7" />
@@ -199,6 +200,7 @@
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/user_entered_fat"
+            android:imeOptions="flagNoExtractUi"
             android:layout_alignBottom="@+id/fat_group"
             android:layout_toLeftOf="@+id/textView9"
             android:layout_toStartOf="@+id/textView9" />
