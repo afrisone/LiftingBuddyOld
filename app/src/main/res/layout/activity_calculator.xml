@@ -221,9 +221,9 @@
         android:background="@drawable/roundedbutton"
         android:textColor="@color/SnowyGray"
         android:textSize="14sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/relativeLayout7"
-        android:layout_alignEnd="@+id/relativeLayout7" />
+        android:layout_below="@+id/relativeLayout7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 

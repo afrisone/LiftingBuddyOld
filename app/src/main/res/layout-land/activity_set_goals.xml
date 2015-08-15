@@ -1,3 +1,9 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -9,7 +15,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/lightbackground"
         android:padding="15dp"
         android:id="@+id/relativeLayout2">
@@ -27,17 +33,16 @@
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:id="@+id/goal_group"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_marginTop="31dp">
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:text="Lose Weight"
                 android:id="@+id/lose_weight"
                 android:checked="false"
@@ -48,7 +53,7 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:text="Maintain"
                 android:id="@+id/maintain_weight"
                 android:checked="true"
@@ -56,7 +61,7 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:text="Gain Weight"
                 android:id="@+id/gain_weight"
                 android:checked="false"
@@ -64,7 +69,7 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:text="Custom Calories"
                 android:id="@+id/custom_goals"
                 android:checked="false"
@@ -77,27 +82,26 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/user_entered_calories"
-            android:layout_alignTop="@+id/gain_weight_spinner"
-            android:layout_alignRight="@+id/goal_group"
-            android:layout_alignEnd="@+id/goal_group" />
+            android:layout_alignBottom="@+id/goal_group"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
 
         <Spinner
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:id="@+id/gain_weight_spinner"
-            android:layout_below="@+id/textView3"
-            android:layout_toLeftOf="@+id/user_entered_calories"
-            android:layout_toStartOf="@+id/user_entered_calories"
-            android:paddingLeft="20dp" />
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Spinner
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:id="@+id/lose_weight_spinner"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignTop="@+id/goal_group"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -110,9 +114,10 @@
             android:textColor="@color/SnowyGray"
             android:padding="5dp"
             android:textSize="14sp"
-            android:layout_below="@+id/gain_weight_spinner"
+            android:layout_below="@+id/goal_group"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp" />
 
 
     </RelativeLayout>
@@ -122,11 +127,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/lightbackground"
         android:padding="15dp"
-        android:id="@+id/relativeLayout5"
         android:layout_below="@+id/relativeLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="19dp">
+        android:layout_marginTop="5dp"
+        android:id="@+id/relativeLayout5">
 
         <TextView
             android:layout_width="wrap_content"
@@ -139,29 +144,28 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/display_calories"
-            android:layout_marginLeft="37dp"
-            android:layout_marginStart="37dp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/textView22"
-            android:layout_toEndOf="@+id/textView22" />
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="Next"
-            android:id="@+id/go_to_macros"
-            android:background="@drawable/roundedbutton"
-            android:textColor="@color/SnowyGray"
-            android:padding="5dp"
-            android:textSize="14sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Next"
+        android:id="@+id/go_to_macros"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/SnowyGray"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_below="@+id/relativeLayout5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
+</ScrollView>

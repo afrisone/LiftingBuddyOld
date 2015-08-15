@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -24,7 +31,7 @@
             android:text="Protein"
             android:id="@+id/test"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="5dp" />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -94,13 +101,13 @@
         android:layout_height="30dp"
         android:text="Final Results"
         android:id="@+id/final_results_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:background="@drawable/roundedbutton"
         android:textColor="@color/SnowyGray"
         android:padding="5dp"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_below="@+id/textView21"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -123,7 +130,7 @@
         android:layout_below="@+id/relativeLayout3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="5dp">
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -184,7 +191,7 @@
             android:text="Fat"
             android:id="@+id/textView8"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="5dp" />
 
         <EditText
             android:layout_width="130dp"
@@ -209,3 +216,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+</ScrollView>
