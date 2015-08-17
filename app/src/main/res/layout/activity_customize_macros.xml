@@ -8,7 +8,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -43,7 +43,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.7g per pound"
+                android:text="@string/pseven_g"
                 android:id="@+id/protein_07"
                 android:checked="true"
                 android:buttonTint="@color/Bluish"/>
@@ -51,7 +51,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.8g per pound"
+                android:text="@string/peight_g"
                 android:id="@+id/protein_08"
                 android:checked="false"
                 android:buttonTint="@color/Bluish"/>
@@ -59,7 +59,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.9g per pound"
+                android:text="@string/pnine_g"
                 android:id="@+id/protein_09"
                 android:checked="false"
                 android:buttonTint="@color/Bluish"/>
@@ -67,7 +67,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Custom"
+                android:text="@string/custom_g"
                 android:id="@+id/protein_custom"
                 android:checked="false"
                 android:buttonTint="@color/Bluish"/>
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="g/lb"
+            android:text="@string/g_p_lb"
             android:id="@+id/textView7"
             android:textSize="14sp"
             android:layout_alignBottom="@+id/user_entered_protein"
@@ -100,7 +100,7 @@
     <Button
         android:layout_width="120dp"
         android:layout_height="30dp"
-        android:text="Final Results"
+        android:text="@string/final_results"
         android:id="@+id/final_results_button"
         android:background="@drawable/roundedbutton"
         android:textColor="@color/SnowyGray"
@@ -144,7 +144,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.35g per pound"
+                android:text="@string/thirtyfive_g"
                 android:id="@+id/fat_35"
                 android:checked="true"
                 android:buttonTint="@color/Bluish" />
@@ -152,7 +152,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.40g per pound"
+                android:text="@string/fourty_g"
                 android:id="@+id/fat_40"
                 android:checked="false"
                 android:buttonTint="@color/Bluish" />
@@ -160,7 +160,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.45g per pound"
+                android:text="@string/fourtyfive_g"
                 android:id="@+id/fat_45"
                 android:checked="false"
                 android:buttonTint="@color/Bluish" />
@@ -168,7 +168,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Custom"
+                android:text="@string/custom_g"
                 android:id="@+id/fat_custom"
                 android:checked="false"
                 android:buttonTint="@color/Bluish" />
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="g/lb"
+            android:text="@string/g_p_lb"
             android:id="@+id/textView9"
             android:textSize="14sp"
             android:layout_alignBottom="@+id/fat_group"

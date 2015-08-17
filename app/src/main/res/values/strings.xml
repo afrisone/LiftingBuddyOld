@@ -26,4 +26,25 @@
         for a few weeks and then add/remove calories as necessary.</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="thirtyfive_g">0.35g per pound</string>
+    <string name="fourty_g">0.40g per pound</string>
+    <string name="fourtyfive_g">0.45g per pound</string>
+    <string name="custom_g">Custom</string>
+    <string name="pnine_g">0.9g per pound</string>
+    <string name="peight_g">0.8g per pound</string>
+    <string name="pseven_g">0.7g per pound</string>
+    <string name="g_p_lb">g/lb</string>
+    <string name="final_results">Final Results</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="maintain">Maintain</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="custom_calories">Custom Calories</string>
+    <string name="submit_button">Submit</string>
+    <string name="calories_are">Your Calories are...</string>
+    <string name="next_button">Next</string>
+    <string name="daily_summary">Daily Summary</string>
+    <string name="end_calories">Calories:</string>
+    <string name="end_protein">Protein:</string>
+    <string name="end_fat">Fat:</string>
+    <string name="end_carb">Carbohydrates:</string>
 </resources>
