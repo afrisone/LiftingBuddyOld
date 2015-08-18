@@ -19,7 +19,7 @@
     <string name="carb_notification">Carbohydrates will be automatically calculated based on the remaining calories</string>
     <string name="title_activity_final_calories_and_macros">Final Results</string>
     <string name="title_activity_home_screen">HomeScreen</string>
-    <string name="set_personal_info">Personal Information</string>
+    <string name="title_set_personal_info">Personal Information</string>
     <string name="title_activity_journal">Journal</string>
     <string name="end_disclaimer">Please use this calculator as a rough estimate. Every person is different
         and may need more or less calories. It is recommended that you use these numbers as a starting point
@@ -47,4 +47,5 @@
     <string name="end_protein">Protein:</string>
     <string name="end_fat">Fat:</string>
     <string name="end_carb">Carbohydrates:</string>
+    <string name="go_to_calculator">Go To Calculator</string>
 </resources>

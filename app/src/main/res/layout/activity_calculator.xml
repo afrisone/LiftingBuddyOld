@@ -221,7 +221,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="Next"
+        android:text="@string/next_button"
         android:id="@+id/button_calculate"
         android:background="@drawable/roundedbutton"
         android:textColor="@color/SnowyGray"
