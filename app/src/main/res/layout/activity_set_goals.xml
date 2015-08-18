@@ -92,7 +92,7 @@
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:id="@+id/gain_weight_spinner"
-            android:layout_centerVertical="true"
+            android:layout_above="@+id/user_entered_calories"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
@@ -100,7 +100,7 @@
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:id="@+id/lose_weight_spinner"
-            android:layout_alignTop="@+id/goal_group"
+            android:layout_below="@+id/textView3"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
