@@ -53,5 +53,18 @@ public class HomeScreen extends ActionBarActivity {
         });
     }
 
+    private void setUpMacrosOnScreen(){
+        getPreviousMacrosFromDatabase();
+        addPreviousMacrosToScreen();
+    }
+
+    private void getPreviousMacrosFromDatabase(){
+
+    }
+
+    private void addPreviousMacrosToScreen(){
+
+    }
+
 
 }
