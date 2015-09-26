@@ -35,5 +35,14 @@ public final class LiftingDB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MACROS);
         onCreate(db);
     }
+
+    public void addMacros(){
+
+    }
+
+    public Macro getMacros(){
+
+    }
+
 }
 
