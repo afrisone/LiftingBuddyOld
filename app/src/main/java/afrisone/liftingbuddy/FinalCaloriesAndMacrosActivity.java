@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.content.Context;
 
 
 public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
@@ -24,7 +23,6 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
 
         getMacronutrients();
         displayMacrosOnScreen();
-        saveDataToDatabase();
     }
 
     @Override
@@ -82,10 +80,5 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
     private void displayCarbohydrates(){
         TextView carbohydrates = (TextView)findViewById(R.id.carbohydrates_per_day);
         carbohydrates.setText(String.valueOf(totalCarbohydrates));
-    }
-
-    private void saveDataToDatabase(){
-        MacroDB macroDatabase = new MacroDB(getApplicationContext());
-        macroDatabase.createRecords(totalDailyCalories, totalProtein, totalFat, totalCarbohydrates);
     }
 }
