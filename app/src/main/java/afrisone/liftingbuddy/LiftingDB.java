@@ -1,6 +1,7 @@
 package afrisone.liftingbuddy;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -36,13 +37,24 @@ public final class LiftingDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addMacros(){
+    public void addMacros(Macro macros){
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(KEY_CALORIES, macros.getCalories());
+        values.put(KEY_PROTEIN, macros.getProtein());
+        values.put(KEY_FAT, macros.getFat());
+        values.put(KEY_CARBS, macros.getCarbohydrates());
+
+        db.insert(TABLE_MACROS, null, values);
+        db.close();
     }
 
     public Macro getMacros(){
 
     }
+
+    public void deleteMacros(Macro macros){}
 
 }
 
