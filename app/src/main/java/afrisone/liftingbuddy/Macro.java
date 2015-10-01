@@ -1,13 +1,13 @@
 package afrisone.liftingbuddy;
 
-/**
- * Created by Dascki on 9/25/2015.
- */
+
+//Class to hold macro sqlite table data
 public class Macro {
     int calories;
     int protein;
     int fat;
     int carbohydrates;
+    int ID;
 
     public Macro(){}
 
@@ -16,6 +16,7 @@ public class Macro {
         this.protein = protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
+        this.ID = 1;
     }
 
     public int getCalories(){
@@ -32,5 +33,9 @@ public class Macro {
 
     public int getCarbohydrates(){
         return this.carbohydrates;
+    }
+
+    public int getID(){
+        return this.ID;
     }
 }
