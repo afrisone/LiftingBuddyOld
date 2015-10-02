@@ -1,15 +1,22 @@
 package afrisone.liftingbuddy;
 
+
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class HomeScreen extends ActionBarActivity {
+    int calories;
+    int protein;
+    int fat;
+    int carbohydrates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +24,7 @@ public class HomeScreen extends ActionBarActivity {
         setContentView(R.layout.activity_home_screen);
 
         setUpCalculatorButton();
+        setUpMacrosOnScreen();
 
     }
 
@@ -58,13 +66,43 @@ public class HomeScreen extends ActionBarActivity {
         addPreviousMacrosToScreen();
     }
 
-    private void getPreviousMacrosFromDatabase(){
-
-    }
-
     private void addPreviousMacrosToScreen(){
+        TextView text = (TextView)findViewById(R.id.db_calories);
+        text.setText(String.valueOf(calories));
 
+        text = (TextView)findViewById(R.id.db_protein);
+        text.setText(String.valueOf(protein));
+
+        text = (TextView)findViewById(R.id.db_fat);
+        text.setText(String.valueOf(fat));
+
+        text = (TextView)findViewById(R.id.db_carbohydrates);
+        text.setText(String.valueOf(carbohydrates));
     }
 
+    public void getPreviousMacrosFromDatabase(){
+        try {
+            LiftingDB macroDB = new LiftingDB(this);
+            Macro existingMacros = macroDB.getMacros(1);
+            setMacros(existingMacros);
+        }
+        catch (SQLiteException e){
+            noDatabaseExists();
+        }
+    }
+
+    private void setMacros(Macro existingMacros){
+        calories = existingMacros.getCalories();
+        protein = existingMacros.getProtein();
+        fat = existingMacros.getFat();
+        carbohydrates = existingMacros.getCarbohydrates();
+    }
+
+    private void noDatabaseExists(){
+        calories = 0;
+        protein = 0;
+        fat = 0;
+        carbohydrates = 0;
+    }
 
 }

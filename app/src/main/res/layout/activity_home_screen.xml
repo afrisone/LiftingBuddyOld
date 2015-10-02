@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="tempCal"
-                android:id="@+id/textView15"
+                android:id="@+id/db_calories"
                 android:layout_below="@+id/textView10"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="tempProt"
-                android:id="@+id/textView16"
+                android:id="@+id/db_protein"
                 android:layout_alignTop="@+id/textView12"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="tempFat"
-                android:id="@+id/textView17"
+                android:id="@+id/db_fat"
                 android:layout_alignTop="@+id/textView13"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="tempCarb"
-                android:id="@+id/textView18"
+                android:id="@+id/db_carbohydrates"
                 android:layout_alignTop="@+id/textView14"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
