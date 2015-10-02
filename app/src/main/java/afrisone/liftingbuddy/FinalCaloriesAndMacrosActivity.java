@@ -24,6 +24,7 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
 
         getMacronutrients();
         displayMacrosOnScreen();
+        setDBTable();
     }
 
     @Override
@@ -85,7 +86,7 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
 
     //TODO: finish sqlite implementation
     private void setDBTable(){
-        LiftingDB db = new LiftingDB(this);
+        LiftingDB db = new LiftingDB(this.getApplicationContext());
 
         db.addMacros(new Macro(totalDailyCalories, totalProtein, totalFat, totalCarbohydrates));
     }
