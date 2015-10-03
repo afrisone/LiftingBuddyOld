@@ -3,39 +3,59 @@ package afrisone.liftingbuddy;
 
 //Class to hold macro sqlite table data
 public class Macro {
-    int calories;
-    int protein;
-    int fat;
-    int carbohydrates;
-    int ID;
+    int _id;
+    int _calories;
+    int _protein;
+    int _fat;
+    int _carbohydrates;
 
     public Macro(){}
 
-    public Macro(int calories, int protein, int fat, int carbohydrates){
-        this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
-        this.ID = 1;
+    public Macro(int id, int calories, int protein, int fat, int carbohydrates){
+        this._id = id;
+        this._calories = calories;
+        this._protein = protein;
+        this._fat = fat;
+        this._carbohydrates = carbohydrates;
     }
 
     public int getCalories(){
-        return this.calories;
+        return this._calories;
     }
 
     public int getProtein(){
-        return this.protein;
+        return this._protein;
     }
 
     public int getFat(){
-        return this.fat;
+        return this._fat;
     }
 
     public int getCarbohydrates(){
-        return this.carbohydrates;
+        return this._carbohydrates;
     }
 
     public int getID(){
-        return this.ID;
+        return this._id;
+    }
+
+    public void setID(int id){
+        this._id = id;
+    }
+
+    public void setCalories(int calories){
+        this._calories = calories;
+    }
+
+    public void setProtein(int protein){
+        this._protein = protein;
+    }
+
+    public void setFat(int fat){
+        this._fat = fat;
+    }
+
+    public void setCarbohydrates(int carbohydrates){
+        this._carbohydrates = carbohydrates;
     }
 }

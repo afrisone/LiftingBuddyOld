@@ -2,7 +2,6 @@ package afrisone.liftingbuddy;
 
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteException;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -81,21 +80,22 @@ public class HomeScreen extends ActionBarActivity {
     }
 
     public void getPreviousMacrosFromDatabase(){
-        try {
-            LiftingDB macroDB = new LiftingDB(this);
-            Macro existingMacros = macroDB.getMacros(1);
-            setMacros(existingMacros);
-        }
-        catch (SQLiteException e){
-            noDatabaseExists();
-        }
+        LiftingDB db = new LiftingDB(this.getApplicationContext());
+
+        Macro previousMacros;
+        previousMacros = db.getMacros(1);
+
+        calories = previousMacros.getCalories();
+        protein = previousMacros.getProtein();
+        fat = previousMacros.getFat();
+        carbohydrates = previousMacros.getCarbohydrates();
     }
 
-    private void setMacros(Macro existingMacros){
-        calories = existingMacros.getCalories();
-        protein = existingMacros.getProtein();
-        fat = existingMacros.getFat();
-        carbohydrates = existingMacros.getCarbohydrates();
+    private void setMacros(int cal, int prot, int fa, int carb){
+        calories = cal;
+        protein = prot;
+        fat = fa;
+        carbohydrates = carb;
     }
 
     private void noDatabaseExists(){
