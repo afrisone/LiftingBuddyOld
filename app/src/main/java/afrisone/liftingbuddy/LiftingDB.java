@@ -26,7 +26,7 @@ public final class LiftingDB extends SQLiteOpenHelper {
     //Create the Macronutrients table in the SQLite database
     @Override
     public void onCreate(SQLiteDatabase db){
-        String CREATE_MACROS_TABLE = "CREATE TABLE" + TABLE_MACROS + "(" + KEY_ID
+        String CREATE_MACROS_TABLE = "CREATE TABLE " + TABLE_MACROS + "(" + KEY_ID
                 + " INTEGER PRIMARY KEY," + KEY_CALORIES + " INTEGER," + KEY_PROTEIN + " INTEGER,"
                 + KEY_FAT + " INTEGER" + KEY_CARBS + " INTEGER" + ")";
         db.execSQL(CREATE_MACROS_TABLE);

@@ -49,6 +49,7 @@ public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Get macros from previous activity
     private void getMacronutrients(){
         Intent intent = getIntent();
         totalDailyCalories = intent.getIntExtra("calories", 0);
