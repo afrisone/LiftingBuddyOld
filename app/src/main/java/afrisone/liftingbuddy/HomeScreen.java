@@ -1,8 +1,9 @@
 package afrisone.liftingbuddy;
 
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class HomeScreen extends ActionBarActivity {
+public class HomeScreen extends Activity {
     int calories;
     int protein;
     int fat;
@@ -61,7 +62,7 @@ public class HomeScreen extends ActionBarActivity {
     }
 
     private void setUpMacrosOnScreen(){
-        getPreviousMacrosFromDatabase();
+        checkDatabaseForMacros();
         addPreviousMacrosToScreen();
     }
 
@@ -79,9 +80,17 @@ public class HomeScreen extends ActionBarActivity {
         text.setText(String.valueOf(carbohydrates));
     }
 
-    public void getPreviousMacrosFromDatabase(){
-        LiftingDB db = new LiftingDB(this.getApplicationContext());
+    public void checkDatabaseForMacros(){
+        try{
+            getMacrosFromPreviousDatabase();
+        }
+        catch(Exception e){
+            noDatabaseExists();
+        }
+    }
 
+    private void getMacrosFromPreviousDatabase(){
+        LiftingDB db = new LiftingDB(this.getApplicationContext());
         Macro previousMacros;
         previousMacros = db.getMacros(1);
 
@@ -91,18 +100,19 @@ public class HomeScreen extends ActionBarActivity {
         carbohydrates = previousMacros.getCarbohydrates();
     }
 
-    private void setMacros(int cal, int prot, int fa, int carb){
-        calories = cal;
-        protein = prot;
-        fat = fa;
-        carbohydrates = carb;
-    }
-
     private void noDatabaseExists(){
+        Macro dbMacros = new Macro();
+        createDatabase(dbMacros);
+
         calories = 0;
         protein = 0;
         fat = 0;
         carbohydrates = 0;
+    }
+
+    private void createDatabase(Macro dbMacros){
+        LiftingDB db = new LiftingDB(this.getApplicationContext());
+        db.createMacrosTable(dbMacros);
     }
 
 }

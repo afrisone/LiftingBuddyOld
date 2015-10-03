@@ -9,7 +9,13 @@ public class Macro {
     int _fat;
     int _carbohydrates;
 
-    public Macro(){}
+    public Macro(){
+        int _id = 1;
+        int _calories = 0;
+        int _protein = 0;
+        int _fat = 0;
+        int _carbohydrates = 0;
+    }
 
     public Macro(int id, int calories, int protein, int fat, int carbohydrates){
         this._id = id;

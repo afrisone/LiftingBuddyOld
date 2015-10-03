@@ -1,7 +1,7 @@
 package afrisone.liftingbuddy;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 
-public class FinalCaloriesAndMacrosActivity extends ActionBarActivity {
+public class FinalCaloriesAndMacrosActivity extends Activity {
     private int totalProtein;
     private int totalFat;
     private int totalCarbohydrates;

@@ -35,7 +35,7 @@ public class LiftingDB extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    void addMacros(Macro macros){
+    void createMacrosTable(Macro macros){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

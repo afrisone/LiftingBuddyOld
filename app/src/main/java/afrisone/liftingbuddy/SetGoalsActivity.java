@@ -1,5 +1,6 @@
 package afrisone.liftingbuddy;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +17,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 
-public class SetGoalsActivity extends ActionBarActivity {
+public class SetGoalsActivity extends Activity {
     private double calorieMultiplier;
     private int totalDailyCalories;
     private double TDEE;
